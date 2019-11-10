@@ -1,0 +1,722 @@
+알고리즘
+    :컴퓨터로 구현 가능한 문제 해결 방법론.
+    알고리즘은 어떤 문제를 해결을 위한 일반적인 절차에 가깝다.
+
+자료 구조
+    :데이터를 구성하는 방식
+    대부분의 유용한 알고리즘들은 그 연산을 위해 데이터를 정리, 조직화하는 작업을 수반한다.
+    데이터 구조는 알고리즘 구현의 부산물이기도 하고 최종 산출물일 수 있다.
+    알고리즘과 데이터 구조는 긴밀하게 연계된다.
+
+알고리즘의 공부 이유.
+    :접근 방법이 같은 문제를 풀더라도 훨씬 더 적은 작원으로 해결하기 위해.
+
+
+자바 기본.
+    jar 파일 클래스패스 jdk 에 추가 방법
+        [jdk 경로]\jre\lib\ext 에 복사
+    javac [java 파일 경로]
+        :자바 파일을 클래스 파일로 컴파일
+    java [class 파일 패키지]
+        :클래스를 실행
+
+재귀 메서드
+    :자기 자신을 호출하는 메서드.
+    :재귀 호출을 이용하면 더 간단하고 이해하기 쉬운 코드를 만들 수 있다.
+
+    재귀의 특징
+        재귀호출은 Base case 을 가진다.
+        Base case
+            :메서드의 첫 부분에 조건에 따른 리턴문
+        재귀호출이 깊어 질수록 더 작은 문제를 다루게 된다.
+        재귀호출 간에는 다루는 문제가 중복되선 안된다.
+
+    모듈러 프로그래밍
+        :프로그램의 기능을 독립적이며 다른 모듈과 호환가능한 모듈을 만드는 기법.
+
+    인터페이스 기반 프로그래밍
+        :모듈을 구성하기 위한 아키텍처 패턴으로 인터페이스를 사용하는 것을 기반으로 하는 프로그래밍 기법.
+
+    모듈러 프로그래밍의 장점.
+        :전체 프로그램의 크기가 매우 커지더라도 각각의 모듈은 적절한 크기로 만들 수 있다.
+        :이미 구현한 코드를 재사용할 수 있다.
+        :특정 기능을 개선된 코드로 쉽게 대체할 수 있다.
+        :문제 해결을 위해 추상화된 모델을 적용할 수 있다.
+
+    자바 API
+         :자바 시스템을 제어하기 위해서 자바에서 제공하는 미리 작성된 패캐지, 클래스 및 인터페이스의 모음.
+         :이 API 을 사용하는 프로그램을 클라이언트라 부르고 API 가 구현된 코드를 구현부라 한다.
+
+java.lang.*
+    :자바에서 표준 시스템 라이브러리들의 집합.
+java.util.*
+    :자바가 지원하는 부가적인 라이브러리.
+
+
+추상 데이터 타입.
+    :개발자가 정의한 데이터 타입이면서 또한 어떤 값들의 집합과 그 값들을 대상으로 정의된 연산/동작들의 집합.
+    :추상 데이터 타입의 핵심 장점은 메서드의 구현 방식이 변경하더라도 클라이언트 코드를 수정해야 할 경우가 드믈다.
+
+    어떤 개념을 중심으로 하여 그것이 가지는 데이터 값과 수행 가능한 동작들을 연결 짓는다.
+    상위 수준으로 추상화된 데이터를 통해 더 편리하게 프로그램을 만들 수 있다.
+    추상 데이터 타입을 사용할 때는 그 클래스의 규정된 API 을 사용함으로 클라이언트로 부터 내부 방식을 숨긴다.
+
+    추상 데이터 타입 API
+        :추상 데이터 타입의 동작 방식의 모음.
+        :API 의 목적은 클라이언트의 코드와 해당 타입의 코드를 서로 독립적으로 만들어 모듈러 프로그래밍이 가능하는데 있다.
+
+        이 API들은 연산들의 목록으로 각각이 어떤 기능을 하는지에 대한 설명이 따라 온다.
+
+        ex)
+        public interface Counter {
+            //남아 있는 모든 double 값들을 배열로 읽어 들인다.
+            void increment();
+            //남아 있는 모든 byte 값들을 배열로 읽어 들인다.
+            int tally();
+        }
+
+    객체.
+        :객체는 추상화된 데이터 타입의 특정한 값을 가진 독립적으로 식별 가능한 인스턴스이다.
+        객체는 상태, 식별성, 동작 방식이란 세가지 핵심 특징을 가진다.
+
+    객체 생성의 과정.
+        추상 데이터 타입으로 생성된 객체는 상태, 식별성, 동작 방식 세 가지의 기본적인 속성을 가진다.
+        new 을 이용해 객체를 생성시 아래의 일이 일어난다.
+
+        1. 객체를 위한 메모리 공간이 할당된다.
+        2. 내부 값을 초기화하기 위한 생성자가 호출된다.
+        3. 객체의 참조가 리턴된다.
+
+    참조 변수.
+        자바에서는 오직 "참조" 를 통해 객체에 접근한다.
+        반대로, 변수는 모두 실제 인스턴스를 가리키지 않고 데이터를 가리키는 "참조" 이다.
+
+    객체 배열.
+        :객체의 배열은 각 객체들에 대한 참조들의 배열로 객체 본체의 값이 아니다.
+
+    객체 지향 프로그래밍.
+        :이러한 객체의 특징을 활용해 데이터 추상화(객체 안에 값들을 두어 데이터 타입과 그 동작 방식을 정의하는) 을 통해 코드를 작성하는 방식.
+
+
+    추상 데이터 타입 설계.
+        :은닉화 (추상 데이터 타입은 내부 데이터 표현 방식을 외부의 클라이언트로부터 숨긴다.)
+        1. API 의 설계. (클라이언트 코드를 작성해 보고 연산에 어떤 것이 고려되어야 하는지 확인한다.)
+            :API 은 사용하기 편해야 한다.
+            :API 은 너무 방대하지 말아야 한다.
+            :API 너무 범용적이여서 실용성이 떨어져선 안된다.
+            :클라이언트가 요구한 것만 제공하고 요구하지 않은 건 제공하지 마라.
+
+        2. 정해진 API 에 맞게 자바 클래스를 구현한다.
+        3. 테스트를 구현한다.
+        4. 만들어진 API 의 동작 방식에 대해 상세하게 명세화한다.
+
+        public class Flips {
+            //Client 코드을 구현해 Counter 가 필요한 연산을 확인한다.
+            public static void main(String[] args) {
+                int T = Integer.parseInt(args[0]);
+                Counter heads = new Counter("heads");
+                Counter tails = new Counter("tails");
+                for (int t=0; t<T; t++) {
+                    if (StdRandom.bernoulli(0.5))
+                        heads.increment();
+                    else
+                        tails.increment();
+                }
+                System.out.println(heads);
+                System.out.println(tails);
+                int delta = heads.tally() - tails.tally();
+                System.out.println("delta: " + Math.abs(delta));
+            }
+        }
+
+    추상 데이터 타입 구현.
+        1. .java 파일에 코드를 구현한다.
+        2. 인스턴스 변수들의 선언으로 객체가 가질 데이터 타입 값을 정의.
+        2. 인스턴스 변수들을 조작할 연산을 구현하게 되는 생성자와 인스턴스 메서드를 정의.
+        4. public 혹은 private 으로 외부로부터의 공개 여부를 정한다.
+
+        인스턴스 변수.
+            :로컬 변수는 특정 시점에 하나의 값만이 변수에 부여되지만 인스턴스 변수는 동시에 매우 많은 값이 존재한다.
+            :인스턴수 변수의 값들은 고유한 특정 객체 인스턴스에 연결된다.
+
+        생성자
+            :고유하게 식별되는 객체 인스턴스를 생성하는 역할.
+            :인스턴스 변수들의 초기값을 부여하는 목적으로 사용된다.
+
+        인스턴스 메서드)
+            :데이터 타입에 대한 연산(동작)을 구현.
+
+        ex)
+            public class Counter {  //Class Name
+
+                private final String name;  //Instance variable
+                private int count;          //Instance variable
+
+                public Counter(String name) {   //Constructor
+                    this.name = name;
+                }
+
+                public void increment() {
+                    count++;
+                }   //Instance method
+
+                public int tally() {
+                    return count;
+                }   //Instance method
+
+                @Override
+                public String toString() {                  //Instance method
+                    return count + " " + name;
+                }
+
+                public static void main(String[] args) {
+                    Counter heads = new Counter("heads");   //Initializing
+                    Counter tails = new Counter("tails");   //Initializing
+
+                    heads.increment();
+                    heads.increment();
+                    tails.increment();
+
+                    System.out.println(heads + " " + tails);
+                    System.out.println(heads.tally() - tails.tally());
+                }
+            }
+
+    인터페이스 상속(서브타이핑)
+        :서로 관련 없는 클래스끼리 관계를 맺을 수 있도록 공통적인 인터페이스 메서드를 보유하게 강요.
+
+    클래스 상속(서브클래싱)
+        :다른 클래스의 구현부를 가져와 그 동작 방식을 재사용하거나 변경할 수 있는 기능.
+
+    계약에 의한 설계.
+        :프로그램이 올바르게 동작하는지 검증하기 위해 자바는 두 가지 매커니즘을 활용한다.
+
+        1. 예외를 발생시켜 동테 범위를 벗어난 예상치 못한 문제 상황에 대응한다.
+        2. assertion 을 이용해 개발 단계에서 가정했던 사항이 맞는지 확인한다.
+
+        *예외는 최대한 이른 시점에 발생시켜야 문제의 원인을 찾기 쉬워진다.
+        *assertion 문의 형태는 assert boolean : "메세지"
+        *assert 은 디폴트로 비활성회되므로 -enableassertions (-ea) 를 인자로 활성화.
+
+    그 외
+        데이터 추상화가 왜 중요한가?
+            :데이터 추상화는 올바른 코드와 오류적은 프로그램를 만드는 데 도움을 준다.
+            :데이터 추상화는 종속성 유발을 줄이고, 모듈러 프로그래밍을 가능하게 해준다.
+
+        기본 데이터 타입과 참조 데이터 타입을 구분하는 이유?
+            :성능상의 이유(기본 타입이 훨씬 빠르다).
+
+        포인터가 무엇인가?
+            :포인터는 기계에서 바로보는 값의 주소값이다.
+            :자바에서는 참조를 만드는 방법은 new 밖에 없고 참조 변경하는 방법도 대입 밖에 없다.
+            :자바의 포인터는 "세이프 포인터" 로 실제 포인터와 차이가 있다.
+
+        import 의 용도는?
+            특별한 것 없다. 타이핑을 줄여준다. 예로 java.util.Array 을 Arrays 로 쓰게한다.
+
+        구현부의 상속(서브클래싱) 의 문제?
+            슈퍼 클래스의 변경 사항이 모든 서브클래스에 영향을 준다.
+            서브 클래스에서 인스턴스 변수에 접근했을 때 슈퍼클래스가 고려해야할 가정 사항이 망가질 수 있다.
+
+        불변 타입을 만드는 법?
+            방어적 복제(외부로 받은 인수를 복제하여 사용)
+            모든 인스턴스 변수들이 불변.
+
+        null 이란?
+            "존재하지 않은 객체" 를 표현하는 참조 (리터럴).
+
+        변수의 종류?
+            Parameter, Local, Instance, Static variable
+
+        @Deprecated 어노테이션?
+            더 이상 지원하지 않지만 하위 호환 때문에 유지되는 메서드.
+
+백, 큐, 스택
+    컬렉션
+        :어떤 값들의 집합이며, 원소들의 추가, 삭제, 검색 작업을 수행.
+        :특정 알고리즘에 적절한 컬렉션을 선택해야 효율성이 증가한다.
+
+    백, 큐, 스택의 API
+        :스택과 큐는 특정 항목을 삭제하는 메서드를 추가로 가진다.
+
+        Bag (백) API
+        public interface Bag<E> {
+            /**
+             * Add element in the bag
+             * @param element
+             */
+            void add(E element);
+
+            /**
+             * true if bag is empty,
+             * otherwise return false.
+             * @return
+             */
+            boolean isEmpty();
+
+            /**
+             * return the number of elements in bag
+             * @return size
+             */
+            int size();
+        }
+
+        Queue (큐) API
+        public interface Queue<E> {
+            /**
+             * Add element in the last of the queue
+             * @param element
+             */
+            void enqueue(E element);
+
+            /**
+             * return the first element of the queue
+             * @return
+             */
+            E dequeue();
+
+            /**
+             * true if queue is empty,
+             * otherwise return false.
+             * @return
+             */
+            boolean isEmpty();
+
+            /**
+             * return the number of elements in bag
+             * @return size
+             */
+            int size();
+        }
+
+        Stack (스택) API
+        public interface Stack<E> {
+
+            /**
+             * Add element at the last of the stack
+             * @param element
+             */
+            void push(E element);
+
+            /**
+             * return element at the last of the stack
+             * @return
+             */
+            E pop();
+
+            /**
+             * true if queue is empty,
+             * otherwise return false.
+             * @return
+             */
+            boolean isEmpty();
+
+            /**
+             * return the number of elements in bag
+             * @return size
+             */
+            int size();
+        }
+
+    제네릭
+        :파라미터화된 타입.
+        Stack<E> 의 <E> 표기는 구현부에서 사용될 E 의 실제 타입을 의미.
+        E 타입은 클라이언트가 실제로 사용되는 시점에야 E 의 데이터 타입이 결정.
+
+    오토박싱 (Autoboxing)
+        :자바가 제공하는 기본 타입과 대응 타입을 자동 변환 기능.
+
+    컬렉션 반복자 (Iterable, Iterator).
+        :컬렉션의 순회 기능을 제공.
+
+    백 (Bag)
+        :순서가 보존되지 않은, 항목을 삭제할 수 없는 컬렉션.
+
+    큐 (Queue)
+        :FIFO (First-In First-Out) 정책의 순서가 보존된 컬렉션.
+        매표소, 영화관 입장 줄 - 공정성
+
+        ex) 입력의 크기를 알 수 없을때, 큐를 이용해 배열에 저장.
+        public static void main(String[] args) {
+            Queue<Integer> queue = getQueue();
+            while (!StdIn.isEmpty())
+                queue.enqueue(StdIn.readInt());
+            final int N = queue.size();
+
+            int[] array = new int[N];
+            for (int i=0; i<N; i++)
+                array[i] = queue.dequeue();
+            System.out.println(Arrays.toString(array));
+        }
+
+    스택 (Stack)
+        :LIFO (Last-In First-Out) 정책의 순서가 보존된 컬렉션.
+        책상의 편지, 카드 덱, 이메일, 웹 서핑.
+
+    컬렉션 구현 연습.
+
+        ex 고정 용량 스택.
+            API 설계
+                1. 클라이언트가 용량을 지정하며, 고정된 용량을 가진다.
+
+            내부 구현
+                1. 배열 a[N] 을 이용하여 요소를 담는다.
+                2. int N 을 이용해 스택에 담겨진 요소을 기록한다.
+
+            In-variant
+                1. 특정 요소가 배열에 저장된 순서는 삽입된 순서와 동일.
+                2. 스택이 비어 있으면 N == 0.
+                3. 스택이 비어 있지 않으면 top 항목은 a[N-1] 이다.
+
+            구현부
+            public class FixedCapacityStack<E> implements Stack<E> {
+                private E[] elements;
+                private int N;
+
+                public FixedCapacityStack(int N) {
+                    elements = (E[]) new Object[N];
+                }
+
+                @Override
+                public void push(E el) {
+                    elements[N++] = el;
+                }
+
+                @Override
+                public E pop() {
+                    E el = elements[--N];
+                    elements[N] = null;
+                    return el;
+                }
+
+                @Override
+                public boolean isEmpty() {
+                    return N == 0;
+                }
+
+                @Override
+                public int size() {
+                    return N;
+                }
+
+                @Override
+                public Iterator<E> iterator() {
+                    return null;
+                }
+
+                // Test Client
+                public static void main(String[] args) {
+                    Stack<String> stack = new FixedCapacityStack<>(100);
+                    while (!StdIn.isEmpty()) {
+                        String s = StdIn.readString();
+                        if (s.equals("-"))
+                            System.out.println(stack.pop() + " ");
+                        else if (!s.isEmpty())
+                            stack.push(s);
+                    }
+                    System.out.println("(" + stack.size() + " left on stack)");
+                }
+            }
+
+        배열 크기 변경.
+            :배열은 크기를 변경할 수 없으므로, 다른 크기의 배열로 요소를 옮겨 담는다.
+
+            1. push 에서 배열의 크기가 부족하면 a.length * 2 만큼 배열을 늘린다.
+            2. pop 에서 남은 요소의 수가 배열의 크기의 1/4 이라면 크기를 절반만큼 줄인다. (크기 조정 후엔 스택의 상태가 절반이 비어있게 된다)
+
+        로이터링 (loitering).
+            :스택 배열에 남겨진 참조가 가비지 컬렉터에 의해 회수되지 않는 상황.
+            메모리 이슈를 피하기 위해 배열의 항목을 삭제할때 항상 null 로 세팅하라.
+
+        public class FixedCapacityStack<E> implements Stack<E> {
+            private E[] elements;
+            private int N;
+
+            public FixedCapacityStack(int N) {
+                elements = (E[]) new Object[N];
+            }
+
+            @Override
+            public void push(E el) {
+                if (N == elements.length)
+                    newCapacity(elements.length * 2);
+                elements[N++] = el;
+            }
+
+            private void newCapacity(int n) {
+                E[] newArray = (E[]) new Object[n];
+                System.arraycopy(elements, 0, newArray, 0, N); //copy to new array[n]
+            }
+
+            @Override
+            public E pop() {
+                E el = elements[--N];
+                elements[N] = null; // 로이터링 방지
+                if (N!=0 && N < (elements.length/4))
+                    newCapacity(elements.length / 2);
+                return el;
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return N == 0;
+            }
+
+            @Override
+            public int size() {
+                return N;
+            }
+
+
+
+우선순위 큐 (Priority Queue)
+    :'우선 순위'를 가진 데이터를 저장하는 Queue.
+
+    Priority Queue 는 최대값 항목 꺼내기(dequeue) 와 새로운 항목 추가 (enqueue) 을 지원한다.
+    Priority Queue 는 주로 이진 힙(binary heap) 을 이용해 구현.
+    Priority Queue 의 예는 이벤트 처리, 작업 스케줄링, 네트워크 트래픽 밸런싱, 정렬 알고리즘에 사용.
+
+    Priority Queue 의 API
+
+        public interface PriorityQueue<E extends Comparable<E>> extends Queue<E> {
+            /**
+             * 우선순위 큐에 요소 추가
+             * @param element
+             */
+            @Override
+            void enqueue(E element);
+
+            /**
+             * 가장 우선순위가 큰 요소 리턴 이후 제거
+             * @return
+             */
+            @Override
+            E dequeue();
+
+            /**
+             * 가장 우선순위가 큰 요소 리턴
+             * @return
+             */
+            E peek();
+
+            @Override
+            boolean isEmpty();
+
+            @Override
+            int size();
+
+            @Override
+            Iterator<E> iterator();
+        }
+
+    우선순위 큐의
+    이진 힙(Binary Heap).
+        : Binary heap 은 Priority Queue 의 기본 동작을 효율적으로 할 수 있게 지원하는 자료 구조.
+
+        Binary Heap 의 특징
+            1.각 노드는 두 자식 노드의 값보다 크거나 같아야 한다.
+            2.1의 특성때문에 결과적으로 가장 큰 노드는 루트 노드이다.
+            3.값을 채울때는 각 레벨(Level) 왼쪽에서 오른쪽으로 채워가는 방식. (완전 이진 트리 - Complete Binary Tree)
+            4.배열의 첫 번째 항목은 구현의 편의상 사용하지 않는다.
+            5.k 에 위치한 노드의 "부모"는 k/2 에 위치.
+            6.k 에 위차한 노드의 자식은 2k, 2k+1 에 위치.
+            7.크기 N 의 완전 이진 트리의 높이는 log 2 N 이다.
+
+        힙-정렬
+            :이진 트리에서 각 노드의 두 자식 노드의 키 값이 부모 노드의 키 값보다 작으면 힙-정렬되었다 한다.
+
+        우선순위 큐의 최대값 꺼내기와 삽입 작업을 효율적으로(로그 시간) 지원.
+
+        힙 복구 작업 (Reheapifying)
+            :힙의 조건을 만족시키기 위한 재작업.
+
+            상향식 힙 복구 (swim)
+                :특정 노드가 부모 노드보다 커졌을 때, 부모 노드와 교환하여 복구하는 작업.
+
+                커진 노드의 위치가 k 라면 부모 노드의 위치인 k/2 과 교환.
+
+                private void swim(int index) {
+                     while (index > 1 && less(elements[index/2], elements[index])) {
+                         swap(index, index/2, elements);
+                         index = index/2;
+                     }
+                }
+
+            하향식 힙 복구(sink)
+                :특정 노드가 자식 노드보다 작아졌을 때, 자식 노드들 중에서 큰 노드와 교환하여 복구하는 작업.
+
+                작아진 노드의 위치가 k 라면 자식 2k, 2k+1 중 큰 노드와 교환.
+
+                 private void sink(int index) {
+                    while (index*2 <= N) {
+                        int child = index*2;
+                        if (child+1 < N && less(elements[child], elements[child+1]))    //오른쪽 자식 노드가 크다면
+                            child++;
+                        if (!less(elements[index], elements[child]))    //부모가 크다면
+                            break;
+                        swap(index, child, elements);
+                        index = child;
+                    }
+                }
+
+            힙의 삽입
+                :배열의 끝부분에 노드를 추가하고 힙의 크기를 늘린다. 그 이후 swim 을 통해 거슬로 올라가며 힙 순서를 바로잡는다.
+
+            힙의 최대 항목 삭제.
+                :루트 (가장 큰 노드) 을 꺼내고, 힙의 가장 마지막 노드를 루트로 옮긴다. 힙의 크기를 줄인 후 sink 을 통해 내려가며 힙 순서를 바로잡는다.
+
+            힙의 성능
+                :N개의 키를 가진 힙에서, 삽입 작업은 1+log 2 N 이하의 비교 연산을 소요.
+                :N개의 키를 가진 힙에서, 최대 항목 제거 작업은 2 * log 2 N 비교 연산(좌우 자식)을 소요.
+
+            public class BinaryHeap<E extends Comparable<E>> implements PriorityQueue<E> {
+                private E[] elements;   // 힙-정렬된 ㅗ안전 이진 트리.
+                private int N;          // element[1..N] 만을 사용
+
+                @SuppressWarnings("unchecked")
+                public BinaryHeap(int N) {
+                    elements = (E[]) new Comparable[N+1];
+                }
+
+                @Override
+                public void enqueue(E element) {
+                    elements[++N] = element;
+                    swim(N);    //reheapifying
+                }
+
+                @Override
+                public E dequeue() {
+                    if (isEmpty())
+                        throw new NoSuchElementException();
+                    E e = elements[1];  //root 은 최대 요소
+                    swap(1, N--);       //마지막 항목과 교환
+                    elements[N+1] = null; //GC help
+                    sink(1);            //reheapifying
+                    return e;
+                }
+
+                @Override
+                public E peek() {
+                    return null;
+                }
+
+                @Override
+                public boolean isEmpty() {
+                    return N == 0;
+                }
+
+                @Override
+                public int size() {
+                    return N;
+                }
+
+                @Override
+                public Iterator<E> iterator() {
+                    return new BinaryHeapIterator<E>();
+                }
+
+                private class BinaryHeapIterator<E> implements Iterator<E> {
+                    int i = N;
+
+                    @Override
+                    public boolean hasNext() {
+                        return i != 0;
+                    }
+
+                    @SuppressWarnings("unchecked")
+                    @Override
+                    public E next() {
+                        return (E) elements[i--];
+                    }
+                }
+
+                private void swim(int k) {
+                    while (k > 1 && less(elements[k >>> 1], elements[k])) {
+                        int parent = k >>> 1;
+                        swap(parent, k);
+                        k = parent;
+                    }
+                }
+
+                private void sink(int k) {
+                    while ((k << 1) <= N) {
+                        int child = k << 1;
+                        if (child < N && less(elements[child], elements[child+1]))
+                            child++;
+                        if (!less(elements[k], elements[child]))
+                            return;
+                        swap(k, child);
+                        k = child;
+                    }
+                }
+
+                private boolean less(E a, E b) {
+                    return b.compareTo(a) < 0;
+                }
+
+                private void swap(int i, int j) {
+                    if (i == j) return;
+                    E e = elements[i];
+                    elements[i] = elements[j];
+                    elements[j] = e;
+                }
+
+            힙의 배열 크기 조정.
+                :삽입시 배열 크기를 두 배식 늘리고, 최대 항목 제거시 절반으로 줄이는 기능을 추가하여 자동 조정 가능.
+
+            키 값의 불변성.
+                :힙은 클라이언트가 생성한 객체를 담지만, 각 객체의 "키" 값이 변경하지 않는다고 (불변성) 가정한다.
+
+                가변성을 지원하면 코드가 복잡해지고 성능 저하가 뒤따르기에 애초에 지원 하지 마라.
+
+            인덱스 방식의 PriorityQueue
+                :저장된 항목에 인덱스로 하여금 직접 접근을 허용하는 PriorityQueue
+
+                특정 범위 안에서 가장 작은 항목을 찾는 기능을 지원.
+
+
+            인덱스 방식의 PriorityQueue 의 API
+                public interface ListPriorityQueue<E extends Comparable<E>> extends PriorityQueue<E>, List<E> {
+
+                    /**
+                     * insert element; associate it with index
+                     * @param index
+                     * @param e
+                     */
+                    @Override
+                    void add(int index, E e);
+
+                    /**
+                     * change the element associated with index to element
+                     * @param index
+                     * @param e
+                     */
+                    @Override
+                    void set(int index, E e);
+
+                    /**
+                     * remove index and its associated element
+                     * @param index
+                     */
+                    @Override
+                    void delete(int index);
+
+                    @Override
+                    void get(int index);
+                }
+
+            힙-정렬
+                :힙-정렬은 힙 구성(heap construction) 과 정렬 취합 (sortdown) 으로 구성.
+
+                힙 구성 - 원본 배열을 힙으로 재배치.
+                정렬 취합 - 힙에서 내림차순으로 요소를 꺼내어 정렬된 결과를 생성
+
+                힙 구성
+                    :배열 오른쪽에서 왼쪽으로 sink 을 이용해 순회해가며 부분 힙을 재귀적으로 생성시켜 전체 힙을 구성.
+
+                    힙 구성의 특성
+                        1.어떤 노드의 두 자식 노드가 힙이라면 그 노드에 sink 을 적용하여 부분 트리의 부모로 만들며, 하나의 부분 힙이 구성된다.
+                        2.순회는 배열의 끝이 아니라 중간 정도에서 시작.
+
+                정렬 취합.
+                    :힙에 남아 있는 요소들 중에서 가장 큰 요소을 꺼내어 삭제하면서 비어 있게 된 배열 위치에 삽입.
